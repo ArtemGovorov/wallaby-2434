@@ -22,9 +22,12 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('wallaby2434');
   });
 
-  it('should render title', () => {
+  it('should render title', async () => {
     const fixture = TestBed.createComponent(AppComponent);
+    
     fixture.detectChanges();
+
+    await fixture.whenStable();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('wallaby2434 app is running!');
   });
